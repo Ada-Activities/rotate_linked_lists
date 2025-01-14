@@ -28,42 +28,42 @@ def is_equal(list1, list2):
     
 
 def add_first(old_head, node):
-    """
-    This function takes in two nodes, the old_head node will be the node that was previously the head of the list, the `node` will be the node that will replace the old head of the list.
-  
-    Parameters:
-    old_head (ListNode): old head of the linked list
-    node (ListNode): node to be set to the new head of the list
-  
-    Returns:
-    ListNode: the new head of the list
-    """
-    pass
+    if not old_head:
+        return None
+    node.next = old_head
+    return node
 
 def get_last_two_nodes(head):
-    """
-    This function accepts the head of a linked list and returns the last two nodes in the linked list.
-  
-    Parameters:
-    head (ListNode): the head of the linked list from which we want to find the last two nodes
-  
-    Returns:
-    tuple(ListNode, ListNode): the last two nodes of the linked list, in the order in which they appear in the list
-    """
-    pass
+    previous = None
+    current = head
+
+    while current.next:
+        previous = current
+        current = current.next
+
+    return previous, current
 
 
 def rotate_list(head, k):
-    """
-    This function accepts the head of a linked list, `head`, and the amount of rotations to perform on the list, `k`.
+    # if the list does not exist, return None
+    if not head:
+        return None
 
-    Given the `head` and `k` rotations, return the new head of the linked list.
-  
-    Parameters:
-    head (ListNode): the head of the linked list from which we want to find the last two nodes
-    k (int): the number of times to rotate the linked list
-  
-    Returns:
-    ListNode: the new head of the linked list after k rotations
-    """
-    pass
+    # if k < 0, raise an error
+    if k < 0:
+        raise ValueError("k must be greater than or equal to 0")
+    
+    # if k is 0 or if the list has one element, return the head of the list
+    elif k == 0 or head.next is None:
+        return head
+
+    # loop k times
+    for i in range(k):
+        # set the new tail and new head to the last two nodes of the list
+        new_tail, new_head = get_last_two_nodes(head)
+        # the new tail's next reference will now be set to None
+        new_tail.next = None
+        # the head of the list is set to the old tail (new head)
+        head = add_first(head, new_head)
+    # after making k rotations, return the new head of the list
+    return head
