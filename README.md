@@ -127,6 +127,8 @@ Output: *3 -> 5 -> 7*
 
 To help you with this activity, we have provided you with a few function starters for you to complete that can help with the implementation of the `rotate_list` function. Descriptions of what each function should do have been included in the respective docstring.
 
+We have also included a class definition for the `ListNode` along with a few functions that will help with testing. Please DO NOT MODIFY these functions or classes!
+
 ## Running Tests
 Use the tests provided in the `test_rotate_linked_list.py` file to verify that your code is working correctly. You can verify the tests are working in one of two ways:
 
