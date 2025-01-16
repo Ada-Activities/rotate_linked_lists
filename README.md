@@ -3,6 +3,9 @@
 This repository is part of the problem set and class activity for Linked Lists in Unit 4.
 
 ## Learning Goals 
+- Practice traversing a Linked List
+- Practice writing functions that manipulate a Linked List
+
   
 ## One-Time Activity Setup
 
@@ -100,10 +103,9 @@ Summary of one-time activity setup:
    $ deactivate
    ```
 
-## Classroom Activity
+## Part 1
 
-### Rotating A Linked List
-
+### Live Code - Rotating A Linked List 
 Implement a function which rotates a singly linked list `k` times.
 
 One rotation can be performed by taking the last node in the linked list and placing it as the head of the list. For this problem, consider the linked list to be singly linked.
@@ -125,10 +127,37 @@ Input: *list = 3 -> 5 -> 7, k = 0*
 
 Output: *3 -> 5 -> 7*
 
-To help you with this activity, we have provided you with a few function starters for you to complete that can help with the implementation of the `rotate_list` function. Descriptions of what each function should do have been included in the respective docstring.
 
-We have also included a class definition for the `ListNode` along with a few functions that will help with testing. Please DO NOT MODIFY these functions or classes!
+We have provided the `ListNode` class as well as the `stringify_list` and `is_equal` functions that will be used for testing purposes. Please DO NOT MODIFY them.
 
+*Note*: For the live code, we will only be implementing the `rotate_list` function. the `rotate_list` function will use the `add_first` and `get_last_two_nodes` helper functions but those will not be implemented until Part 2: the classroom activity.
+
+## Part 2
+
+## Classroom Activity - Implement Helper Functions
+
+We have provided starter code for the functions `add_first` and `get_last_two_nodes` which are used within the `rotate_list`. Your job is to use what you know about Linked Lists to complete these functions. A description of what each function should do can be found below and in the respective docstrings:
+
+- `add_first`: This function takes in two nodes, the old_head node will be the node that was previously the head of the list, the `node` will be the node that will replace the old head of the list.
+  
+    - Parameters:
+        - `old_head (ListNode)`: old head of the linked list
+    
+        - `node (ListNode)`: node to be set to the new head of the list
+  
+    - Returns:
+        - `ListNode`: the new head of the list
+
+- `get_last_two_nodes`: This function accepts the head of a linked list and returns the last two nodes in the linked list.
+
+    - Parameters:
+      - `head (ListNode)`: the head of the linked list from which we want to find the last two nodes
+
+    -  Returns:
+       - `tuple (ListNode, ListNode)`: the last two nodes of the linked list, in the order in which they appear in the list
+
+There are individual tests for these two functions. Once they are passing, the tests for the `rotate_list` function should pass as well!
+ 
 ## Running Tests
 Use the tests provided in the `test_rotate_linked_list.py` file to verify that your code is working correctly. You can verify the tests are working in one of two ways:
 
